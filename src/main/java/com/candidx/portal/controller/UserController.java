@@ -23,7 +23,7 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<ApiResponseDTO<List<UserDTOResponse>>> getUser(@RequestParam(required = false) UUID userId) {
+    public ResponseEntity<ApiResponseDTO<List<UserDTOResponse>>> getUser(@RequestParam(required = true) UUID userId) {
 
         List<UserDTOResponse> users = userService.getUsers(userId);
         return ResponseEntity.ok(new ApiResponseDTO<>(200, users, "data retrieved successfully"));
